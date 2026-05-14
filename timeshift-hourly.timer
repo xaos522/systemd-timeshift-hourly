@@ -1,0 +1,15 @@
+[Unit]
+Description=Run timeshift-hourly 5 min after boot and hourly thereafter
+
+[Timer]
+# Run 5 minutes after boot
+OnBootSec=5min
+# Run every 1 hour after the previous run
+OnUnitActiveSec=1h
+# Ensures the timer is accurate within 5 minutes
+AccuracySec=5min
+# If the service was missed, run immediately on boot
+Persistent=true
+
+[Install]
+WantedBy=timers.target

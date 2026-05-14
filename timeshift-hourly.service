@@ -1,0 +1,11 @@
+[Unit]
+Description=Timeshift hourly service
+# Trigger the failure service if this service fails
+# %n refers to the current service name
+OnFailure=systemd-service-failure@%n.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/timeshift --create --scripted --tags H
+# Trigger the notification script after success
+# ExecStartPost=/usr/local/bin/send-desktop-notification.sh -i timeshift "Timeshift" "Snapshot operation comple·ted successfully."
