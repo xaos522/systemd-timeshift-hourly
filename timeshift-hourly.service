@@ -6,6 +6,6 @@ OnFailure=systemd-service-failure@%n.service
 
 [Service]
 Type=oneshot
-ExecStart=/usr/local/bin/timeshift --create --scripted --tags H
+ExecStart=/usr/local/bin/timeshift --check --scripted
 # Trigger the notification script after success
 # ExecStartPost=/usr/local/bin/send-desktop-notification.sh -i timeshift "Timeshift" "Snapshot operation comple·ted successfully."
