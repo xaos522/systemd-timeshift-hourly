@@ -19,7 +19,9 @@ install:
 		install -Dm644 -t "$(ETC_DIR)/systemd/system/" systemd-timeshift-hourly.service; \
 		echo "Installing systemd .timer file"; \
 		install -Dm644 -t "$(ETC_DIR)/systemd/system/" systemd-timeshift-hourly.timer; \
-	 fi
+		echo "Installing systemd service-failure file"; \
+		install -Dm644 -t "$(ETC_DIR)/systemd/system/" systemd-service-failure@.service;
+	fi
 
 uninstall:
 	@echo "Uninstalling systemd-timeshift-hourly"
@@ -29,3 +31,4 @@ uninstall:
 	fi
 	@rm -f "$(ETC_DIR)/systemd/system/systemd-timeshift-hourly.service"
 	@rm -f "$(ETC_DIR)/systemd/system/systemd-timeshift-hourly.timer"
+	@rm -f "$(ETC_DIR)/systemd/system/systemd-service-failure@.service"

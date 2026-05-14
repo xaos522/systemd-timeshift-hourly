@@ -1,0 +1,9 @@
+[Unit]
+Description=Notify user of systemd service failure for %i
+
+[Service]
+Type=oneshot
+# %i passes the instance name (e.g., timeshift-hourly) to the script
+ExecStart=/usr/local/bin/notify-systemd-service-failure.sh %i
+User=root
+# Environment=DISPLAY=:0
